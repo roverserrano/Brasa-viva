@@ -34,65 +34,63 @@ Definidos en `apps/web/app/tokens.css` como custom properties globales. Valores 
 
 ### Marca — Rojo brasa (público)
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-brasa` | `#ae2b21` | CTA primario, enlaces, precios, acentos |
-| `--bv-brasa-strong` | `#8d2119` | Hover/active de botones y enlaces |
-| `--bv-brasa-deep` | `#822c22` | Superficies rojas (barra de carrito, bloques) |
-| `--bv-brasa-dark` | `#6c1616` | Paradas medias de gradientes oscuros |
-| `--bv-brasa-night` | `#2a0e0e` | Fondo oscuro de login administrativo |
-| `--bv-brasa-bright` | `#c63825` | Acento sobre superficies oscuras |
-| `--bv-focus` | `#b34c00` | Anillo de foco sobre superficies claras (naranja quemado) |
+| Token               | Valor     | Uso                                                       |
+| :------------------ | :-------- | :-------------------------------------------------------- |
+| `--bv-brasa`        | `#ae2b21` | CTA primario, enlaces, precios, acentos                   |
+| `--bv-brasa-strong` | `#8d2119` | Hover/active de botones y enlaces                         |
+| `--bv-brasa-deep`   | `#822c22` | Superficies rojas (barra de carrito, bloques)             |
+| `--bv-brasa-bright` | `#c63825` | Acento sobre superficies oscuras                          |
+| `--bv-focus`        | `#b34c00` | Anillo de foco sobre superficies claras (naranja quemado) |
 
 ### Crema y papel
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-cream` | `#fff7e8` | Fondo global del documento |
-| `--bv-paper` | `#faf5eb` | Fondo de la experiencia pública |
-| `--bv-card` | `#fffcf6` | Tarjetas de producto y paneles |
-| `--bv-surface` | `#fffaf1` | Superficies elevadas (login, popovers) |
+| Token             | Valor     | Uso                                                                     |
+| :---------------- | :-------- | :---------------------------------------------------------------------- |
+| `--bv-cream`      | `#fff7e8` | Fondo global del documento                                              |
+| `--bv-paper`      | `#faf5eb` | Fondo de la experiencia pública                                         |
+| `--bv-card`       | `#fffcf6` | Tarjetas de producto y paneles                                          |
+| `--bv-surface`    | `#fffaf1` | Superficies elevadas (tarjetas de checkout, popovers)                   |
 | `--bv-brasa-tint` | `#fbf1e8` | Tinte cálido de estados seleccionados (tarjetas de opción del checkout) |
 
 ### Carbón y neutros cálidos
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-carbon` | `#1c1917` | Texto principal, footer |
+| Token              | Valor     | Uso                                      |
+| :----------------- | :-------- | :--------------------------------------- |
+| `--bv-carbon`      | `#1c1917` | Texto principal, footer                  |
 | `--bv-carbon-soft` | `#27241f` | Superficies oscuras secundarias (footer) |
-| `--bv-carbon-deep` | `#201b16` | Fondo del hero |
-| `--bv-ink` | `#27241f` | Texto editorial (equivalente suave) |
-| `--bv-muted` | `#686156` | Texto secundario sobre crema (≥4.5:1) |
-| `--bv-line` | `#ded7cb` | Bordes y separadores |
-| `--bv-line-strong` | `#c4b9a8` | Bordes enfatizados |
+| `--bv-carbon-deep` | `#201b16` | Fondo del hero                           |
+| `--bv-ink`         | `#27241f` | Texto editorial (equivalente suave)      |
+| `--bv-muted`       | `#686156` | Texto secundario sobre crema (≥4.5:1)    |
+| `--bv-line`        | `#ded7cb` | Bordes y separadores                     |
+| `--bv-line-strong` | `#c4b9a8` | Bordes enfatizados                       |
 
 ### Cobre (acento cálido)
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-copper` | `#edac7d` | Detalles cálidos, ilustraciones, sobre oscuro |
-| `--bv-copper-deep` | `#bf7845` | Hover de acentos cobre, iconos |
-| `--bv-copper-bright` | `#e8a15a` | Acento sobre verde/oscuro |
+| Token                | Valor     | Uso                                           |
+| :------------------- | :-------- | :-------------------------------------------- |
+| `--bv-copper`        | `#edac7d` | Detalles cálidos, ilustraciones, sobre oscuro |
+| `--bv-copper-deep`   | `#bf7845` | Hover de acentos cobre, iconos                |
+| `--bv-copper-bright` | `#e8a15a` | Acento sobre verde/oscuro                     |
 
 ### Admin ejecutivo
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-admin-ink` | `#213632` | Texto principal del panel |
-| `--bv-admin-muted` | `#647572` | Texto secundario del panel |
-| `--bv-admin-accent` | `#167461` | Datos, gráficos, botones primarios admin |
-| `--bv-admin-sidebar` | `#142e2a` | Fondo de la barra lateral |
-| `--bv-admin-bg` | `#f3f6f6` | Fondo del área de contenido |
-| `--bv-admin-focus` | `#c07836` | Anillo de foco sobre verde oscuro |
+| Token                | Valor     | Uso                                      |
+| :------------------- | :-------- | :--------------------------------------- |
+| `--bv-admin-ink`     | `#213632` | Texto principal del panel                |
+| `--bv-admin-muted`   | `#647572` | Texto secundario del panel               |
+| `--bv-admin-accent`  | `#167461` | Datos, gráficos, botones primarios admin |
+| `--bv-admin-sidebar` | `#142e2a` | Fondo de la barra lateral                |
+| `--bv-admin-bg`      | `#f3f6f6` | Fondo del área de contenido              |
+| `--bv-admin-focus`   | `#c07836` | Anillo de foco sobre verde oscuro        |
 
 ### Semánticos
 
-| Token | Valor | Uso |
-| :--- | :--- | :--- |
-| `--bv-success` / `--bv-success-bg` | `#166534` / `#dcfce7` | Confirmaciones |
-| `--bv-danger` / `--bv-danger-bg` | `#991b1b` / `#fee2e2` | Errores y estados destructivos |
-| `--bv-amber` | `#fbbf24` | Selección de texto, avisos suaves sobre oscuro |
-| `--bv-olive` | `#35483d` | Bloque de sucursales en home |
+| Token                              | Valor                 | Uso                                            |
+| :--------------------------------- | :-------------------- | :--------------------------------------------- |
+| `--bv-success` / `--bv-success-bg` | `#166534` / `#dcfce7` | Confirmaciones                                 |
+| `--bv-danger` / `--bv-danger-bg`   | `#991b1b` / `#fee2e2` | Errores y estados destructivos                 |
+| `--bv-amber`                       | `#fbbf24`             | Selección de texto, avisos suaves sobre oscuro |
+| `--bv-olive`                       | `#35483d`             | Bloque de sucursales en home                   |
 
 **Reglas de color:**
 
@@ -112,17 +110,17 @@ Definidos en `apps/web/app/tokens.css` como custom properties globales. Valores 
   estabilidad de métricas entre plataformas y por no depender de fuentes remotas (regla del
   proyecto). Nada de fuentes cargadas por CDN.
 
-| Rol | Familia | Tamaño | Peso | Interlineado | Notas |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Display / hero | serif | `clamp(2.6rem, 7vw, 4.9rem)` | 500–600 | 0.98–1.05 | `letter-spacing: -0.01em`, `text-wrap: balance` |
-| H1 de página | serif | `clamp(2rem, 4.5vw, 3.2rem)` | 500 | 1.05 | Con `PageIntro` (eyebrow + breadcrumb) |
-| H2 de sección | serif | `clamp(1.6rem, 3.4vw, 2.6rem)` | 500 | 1.1 | `text-wrap: balance` |
-| H3 de tarjeta | serif | `1.15rem–1.4rem` | 600 | 1.2 | Nombre de producto |
-| Cuerpo grande | sans | `1.05–1.25rem` | 400 | 1.6 | Bajadas editoriales, máx. 65ch |
-| Cuerpo | sans | `1rem` | 400 | 1.55 | Texto general ≥16px |
-| Pequeño | sans | `0.875rem` | 400–700 | 1.5 | Metadatos, ayuda |
-| Overline / eyebrow | sans | `0.72–0.78rem` | 800 | 1.2 | MAYÚSCULAS, `letter-spacing: 0.14em`, color brasa |
-| Precio | sans | según contexto | 700 | 1 | `font-variant-numeric: tabular-nums`, formato `Bs 32,00` (`formatBs`) |
+| Rol                | Familia | Tamaño                         | Peso    | Interlineado | Notas                                                                 |
+| :----------------- | :------ | :----------------------------- | :------ | :----------- | :-------------------------------------------------------------------- |
+| Display / hero     | serif   | `clamp(2.6rem, 7vw, 4.9rem)`   | 500–600 | 0.98–1.05    | `letter-spacing: -0.01em`, `text-wrap: balance`                       |
+| H1 de página       | serif   | `clamp(2rem, 4.5vw, 3.2rem)`   | 500     | 1.05         | Con `PageIntro` (eyebrow + breadcrumb)                                |
+| H2 de sección      | serif   | `clamp(1.6rem, 3.4vw, 2.6rem)` | 500     | 1.1          | `text-wrap: balance`                                                  |
+| H3 de tarjeta      | serif   | `1.15rem–1.4rem`               | 600     | 1.2          | Nombre de producto                                                    |
+| Cuerpo grande      | sans    | `1.05–1.25rem`                 | 400     | 1.6          | Bajadas editoriales, máx. 65ch                                        |
+| Cuerpo             | sans    | `1rem`                         | 400     | 1.55         | Texto general ≥16px                                                   |
+| Pequeño            | sans    | `0.875rem`                     | 400–700 | 1.5          | Metadatos, ayuda                                                      |
+| Overline / eyebrow | sans    | `0.72–0.78rem`                 | 800     | 1.2          | MAYÚSCULAS, `letter-spacing: 0.14em`, color brasa                     |
+| Precio             | sans    | según contexto                 | 700     | 1            | `font-variant-numeric: tabular-nums`, formato `Bs 32,00` (`formatBs`) |
 
 **Reglas tipográficas:**
 
@@ -154,12 +152,12 @@ Definidos en `apps/web/app/tokens.css` como custom properties globales. Valores 
 
 ### Botones
 
-| Variante | Fondo | Texto | Uso |
-| :--- | :--- | :--- | :--- |
-| Primario | `--bv-brasa` (hover `--bv-brasa-strong`) | blanco | "Pedir ahora", "Añadir al carrito", "Confirmar pedido" |
-| Secundario | transparente con borde `--bv-line-strong` | `--bv-ink` | Acciones alternativas |
-| Fantasma/texto | sin fondo | `--bv-brasa` subrayado al hover | "Ver menú", acciones terciarias |
-| Admin primario | `--bv-admin-accent` | blanco | Guardar/cambiar en panel |
+| Variante       | Fondo                                     | Texto                           | Uso                                                    |
+| :------------- | :---------------------------------------- | :------------------------------ | :----------------------------------------------------- |
+| Primario       | `--bv-brasa` (hover `--bv-brasa-strong`)  | blanco                          | "Pedir ahora", "Añadir al carrito", "Confirmar pedido" |
+| Secundario     | transparente con borde `--bv-line-strong` | `--bv-ink`                      | Acciones alternativas                                  |
+| Fantasma/texto | sin fondo                                 | `--bv-brasa` subrayado al hover | "Ver menú", acciones terciarias                        |
+| Admin primario | `--bv-admin-accent`                       | blanco                          | Guardar/cambiar en panel                               |
 
 Altura mínima táctil 44 px; radio `sm`; feedback `:hover` (oscurecer), `:active`
 (`translateY(1px)`), `:focus-visible` (anillo de foco), `:disabled` (opacidad 0.6,
@@ -189,6 +187,16 @@ ayuda contextual.
 Badges de color con etiqueta textual (nunca solo color): Recibido, Confirmado, En
 preparación, Listo, Entregado, Cancelado. En tablas y dashboard se acompaña siempre de la
 palabra.
+
+### Acceso administrativo (login y restablecimiento)
+
+Pantalla de dos paneles alineada a la identidad executive: panel de marca verde oscuro
+(`--bv-admin-sidebar`) con wordmark BV · BUSINESS CENTER, mensaje de la cadena y viñetas;
+panel claro (`--bv-admin-bg`) con tarjeta blanca centrada y el formulario. En <1024 px el
+panel de marca se compacta a una franja superior con el wordmark. CTA primario
+`--bv-admin-accent`, enlaces `--bv-admin-accent-strong`, foco `--bv-admin-focus`;
+`theme-color` `#142e2a` en ambas páginas. El estado de verificación (`admin-loading`) usa
+el mismo verde profundo con foco cobre.
 
 ### Navegación
 
@@ -240,12 +248,12 @@ accesible cuando la acción destruya datos del usuario (carrito completo). Nunca
 Breakpoints canónicos (mobile-first; los existentes 479/600/639/767/1023/1199/1500 se
 mantienen por compatibilidad, nuevas reglas usan la escala):
 
-| Nombre | Min-width | Uso |
-| :--- | :--- | :--- |
-| `sm` | 480 px | Tarjetas en columnas, ajustes finos de dock |
-| `md` | 768 px | Dock móvil desaparece, buscador a la derecha, menú admin 2 columnas |
-| `lg` | 1024 px | Balanced editorial, grids 3 columnas, sidebar admin fija |
-| `xl` | 1200 px | Márgenes generosos, hero a 2 columnas completa |
+| Nombre | Min-width | Uso                                                                 |
+| :----- | :-------- | :------------------------------------------------------------------ |
+| `sm`   | 480 px    | Tarjetas en columnas, ajustes finos de dock                         |
+| `md`   | 768 px    | Dock móvil desaparece, buscador a la derecha, menú admin 2 columnas |
+| `lg`   | 1024 px   | Balanced editorial, grids 3 columnas, sidebar admin fija            |
+| `xl`   | 1200 px   | Márgenes generosos, hero a 2 columnas completa                      |
 
 Reglas: sin scroll horizontal en 375/430/768/1440; el dock y la barra de carrito respetan
 `env(safe-area-inset-bottom)`; las tablas admin colapsan a lista de tarjetas en <640 px con

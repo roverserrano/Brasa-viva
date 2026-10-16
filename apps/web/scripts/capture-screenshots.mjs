@@ -33,7 +33,8 @@ const pages = [
   { name: 'sucursal-detalle', path: '/sucursales/brasa-viva-centro' },
   { name: 'nosotros', path: '/nosotros' },
   { name: 'contacto', path: '/contacto' },
-  { name: 'admin-login', path: '/admin/login' }
+  { name: 'admin-login', path: '/admin/login' },
+  { name: 'admin-restablecer', path: '/admin/restablecer' }
 ];
 
 const adminSession = JSON.stringify({
@@ -58,11 +59,21 @@ for (const viewport of viewports) {
   const page = await context.newPage();
   page.on('console', (message) => {
     if (message.type() === 'error' || message.type() === 'warning') {
-      issues.push({ viewport: viewport.name, type: message.type(), text: message.text(), url: page.url() });
+      issues.push({
+        viewport: viewport.name,
+        type: message.type(),
+        text: message.text(),
+        url: page.url()
+      });
     }
   });
   page.on('pageerror', (error) => {
-    issues.push({ viewport: viewport.name, type: 'pageerror', text: String(error), url: page.url() });
+    issues.push({
+      viewport: viewport.name,
+      type: 'pageerror',
+      text: String(error),
+      url: page.url()
+    });
   });
 
   const capture = async (name) => {
@@ -82,7 +93,10 @@ for (const viewport of viewports) {
 
   // Carrito y checkout con un producto agregado.
   await page.goto(`${baseURL}/menu?branch=brasa-viva-centro`, { waitUntil: 'load' });
-  await page.getByRole('button', { name: /añadir al carrito/i }).first().click();
+  await page
+    .getByRole('button', { name: /añadir al carrito/i })
+    .first()
+    .click();
   await page.waitForTimeout(500);
   await page.goto(`${baseURL}/carrito`, { waitUntil: 'load' });
   await page.waitForTimeout(400);
@@ -106,11 +120,21 @@ for (const viewport of viewports) {
   const adminPage = await adminContext.newPage();
   adminPage.on('console', (message) => {
     if (message.type() === 'error' || message.type() === 'warning') {
-      issues.push({ viewport: viewport.name, type: message.type(), text: message.text(), url: adminPage.url() });
+      issues.push({
+        viewport: viewport.name,
+        type: message.type(),
+        text: message.text(),
+        url: adminPage.url()
+      });
     }
   });
   adminPage.on('pageerror', (error) => {
-    issues.push({ viewport: viewport.name, type: 'pageerror', text: String(error), url: adminPage.url() });
+    issues.push({
+      viewport: viewport.name,
+      type: 'pageerror',
+      text: String(error),
+      url: adminPage.url()
+    });
   });
   await adminPage.goto(`${baseURL}/admin`, { waitUntil: 'load', timeout: 90_000 });
   await adminPage.waitForTimeout(900);

@@ -39,25 +39,18 @@ a {
   outline-offset: 3px;
 }
 
-/* Sobre superficies oscuras del acceso administrativo el foco usa ámbar. */
-.admin-loading :focus-visible,
-.admin-login-page :focus-visible {
-  outline-color: var(--bv-amber);
+/* Sobre la superficie verde oscura del acceso administrativo el foco usa cobre. */
+.admin-loading :focus-visible {
+  outline-color: var(--bv-copper-bright);
 }
 
-.admin-loading,
-.admin-login-page {
+.admin-loading {
   min-height: 100dvh;
   display: grid;
   place-items: center;
   padding: 1.5rem;
-  background: linear-gradient(
-    135deg,
-    var(--bv-brasa-night),
-    var(--bv-brasa-dark) 55%,
-    var(--bv-brasa-crimson)
-  );
-  color: var(--bv-cream);
+  background: linear-gradient(150deg, #0e2420, var(--bv-admin-sidebar) 60%, #1c3b34);
+  color: #dce7e2;
 }
 
 .admin-login-card {
@@ -69,7 +62,6 @@ a {
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 30%);
 }
 
-.admin-login-brand,
 .admin-brand > span {
   display: grid;
   place-items: center;

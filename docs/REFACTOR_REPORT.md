@@ -20,15 +20,15 @@ Ejecución guiada por `.agent/refactorizacion.md` (8 fases) y el ExecPlan
 
 ## Verificación final
 
-| Gate | Resultado |
-| :--- | :--- |
-| `pnpm lint` | ✅ 5/5 paquetes, 0 warnings |
-| `pnpm typecheck` | ✅ 5/5 paquetes |
-| `pnpm test` | ✅ 77 tests (contracts 10, api 33, web 34) |
-| `pnpm build` | ✅ 5/5 tareas |
-| `pnpm test:e2e` | ✅ 17/17 (25.6 s, Chromium headless) |
-| Consola del navegador (52 navegaciones × 4 viewports) | ✅ 0 incidencias (antes: 15) |
-| Sin scroll horizontal en 375/430/768/1440 | ✅ verificado por e2e (`Executive workspace fits Npx`) y capturas |
+| Gate                                                  | Resultado                                                         |
+| :---------------------------------------------------- | :---------------------------------------------------------------- |
+| `pnpm lint`                                           | ✅ 5/5 paquetes, 0 warnings                                       |
+| `pnpm typecheck`                                      | ✅ 5/5 paquetes                                                   |
+| `pnpm test`                                           | ✅ 77 tests (contracts 10, api 33, web 34)                        |
+| `pnpm build`                                          | ✅ 5/5 tareas                                                     |
+| `pnpm test:e2e`                                       | ✅ 17/17 (25.6 s, Chromium headless)                              |
+| Consola del navegador (52 navegaciones × 4 viewports) | ✅ 0 incidencias (antes: 15)                                      |
+| Sin scroll horizontal en 375/430/768/1440             | ✅ verificado por e2e (`Executive workspace fits Npx`) y capturas |
 
 Comandos reproducibles desde la raíz:
 
@@ -163,3 +163,29 @@ Además, `data-scroll-behavior` eliminó el aviso de smooth-scroll en cada naveg
 Repositorio git local; commit baseline `5a9bed4` (estado pre-refactor con gates verdes).
 Cada etapa está commiteada por separado (11 commits) para revertir de forma selectiva.
 No hay remoto configurado.
+
+## Addendum (2026-10-15) — Acceso administrativo alineado al executive
+
+A petición posterior al cierre: coherencia corporativa del acceso con el workspace. Antes,
+login y restablecimiento usaban la identidad pública (fondo rojo oscuro, tarjeta crema,
+botón rojo) mientras el panel interior es verde executive; no parecían el mismo producto.
+
+Cambios:
+
+- Nuevos `app/admin-access.css` y `features/admin/admin-access-layout.tsx`: pantalla de dos
+  paneles (marca verde con wordmark, mensaje y viñetas; tarjeta blanca con formulario) usada
+  por `app/admin/login/page.tsx` y `app/admin/restablecer/page.tsx`. En <1024 px el panel de
+  marca se compacta a franja superior.
+- `theme-color` `#142e2a` en login y restablecimiento; `robots noindex` añadido al
+  restablecimiento (antes heredaba el indexado público).
+- Estado de verificación `admin-loading` restilizado al verde profundo con foco cobre.
+- Tokens `--bv-brasa-dark` y `--bv-brasa-night` eliminados (sin uso tras el cambio);
+  `DESIGN.md` documenta la pantalla y ya no lista los tokens obsoletos.
+- Capturas regeneradas (56 imágenes × 4 viewports, incluye `admin-restablecer` como página
+  nueva en `capture-screenshots.mjs`) y `console-issues.json` con 0 incidencias.
+
+Verificación: lint y typecheck en verde (5/5), e2e 17/17. Nota: en una revisión intermedia
+apareció un aviso de hidratación por `caret-color: transparent` en inputs; es un artefacto
+de Playwright (oculta el caret con un estilo inline durante cada screenshot) que puede
+coincidir con la hidratación inicial en dev. No reproducible en el set oficial ni en e2e;
+no requiere cambio de producto.
