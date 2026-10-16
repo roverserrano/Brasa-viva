@@ -120,6 +120,17 @@ Proceso:
 
 No usar producción para “probar”.
 
+## Servidores de desarrollo
+
+- Un único `pnpm dev` a la vez: levanta la web en `:3000` y la API en `:4000`. Next 16
+  rechaza un segundo `next dev` para el mismo directorio ("Another next dev server is
+  already running") y la API falla con `EADDRINUSE`.
+- Ante un conflicto de puerto: localizar el proceso (`ss -ltnp | grep -E ':3000|:4000'`)
+  y detenerlo antes de reintentar. El mensaje de Next también indica el PID a detener.
+- Los procesos lanzados para QA (fixture e2e, dev servers en segundo plano) se detienen al
+  terminar la sesión: `pnpm test:e2e` y las capturas exigen los puertos libres
+  (`reuseExistingServer: false`).
+
 ## Nueva feature
 
 Checklist:
