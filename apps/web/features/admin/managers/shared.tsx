@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from 'react';
 import { type AdminBranchResponse, type AdminProductResponse } from '@brasa-viva/contracts';
 import { canManageCatalog, useAdminSession } from '../admin-shell';
+import { formatBs } from '../../../lib/format';
 
 export type Notice = { kind: 'error' | 'success'; message: string } | null;
 export type BranchOption = Pick<AdminBranchResponse, 'id' | 'name'>;
@@ -57,8 +58,8 @@ export function BranchAssignments({
         <div key={assignment.branchId}>
           <strong>{assignment.branchName}</strong>
           <span>
-            : {assignment.available ? 'Disponible' : 'No disponible'} · Bs{' '}
-            {assignment.priceOverride ?? product.basePrice}
+            : {assignment.available ? 'Disponible' : 'No disponible'} ·{' '}
+            {formatBs(assignment.priceOverride ?? product.basePrice)}
           </span>
           {editable ? (
             <div className="admin-action-row">
@@ -95,7 +96,7 @@ export function BranchAssignments({
                   placeholder={product.basePrice}
                 />
               </label>
-              <small>Deja vacío para usar Bs {product.basePrice} del catálogo.</small>
+              <small>Deja vacío para usar {formatBs(product.basePrice)} del catálogo.</small>
               <button
                 className="admin-secondary-button"
                 type="button"

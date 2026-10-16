@@ -27,6 +27,11 @@ export const orderStatusLabels = {
   CANCELLED: 'Cancelado'
 } as const;
 
+export const orderTypeLabels = {
+  PICKUP: 'Recojo en sucursal',
+  DELIVERY: 'Delivery coordinado'
+} as const;
+
 export const permittedOrderTransitions: Record<
   z.infer<typeof orderStatusSchema>,
   readonly z.infer<typeof orderStatusSchema>[]

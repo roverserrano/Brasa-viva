@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { orderStatusLabels, type DashboardInsights } from '@brasa-viva/contracts';
+import { orderStatusLabels, orderTypeLabels, type DashboardInsights } from '@brasa-viva/contracts';
 import { AdminIcon, type AdminIconName } from './admin-icon';
 import { DashboardChart } from './dashboard-chart';
 import { formatBs, formatCount } from '../../lib/format';
@@ -155,9 +155,7 @@ export function DashboardOverview({
                 <AdminIcon name={channel.type === 'PICKUP' ? 'branches' : 'products'} />
               </span>
               <div>
-                <strong>
-                  {channel.type === 'PICKUP' ? 'Recojo en sucursal' : 'Delivery coordinado'}
-                </strong>
+                <strong>{orderTypeLabels[channel.type]}</strong>
                 <small>
                   {formatCount(channel.orders)} pedidos ·{' '}
                   {current.orders ? Math.round((channel.orders / current.orders) * 100) : 0}%

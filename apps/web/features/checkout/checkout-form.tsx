@@ -2,7 +2,11 @@
 
 import { PublicLink as Link } from '../../components/site/public-link';
 import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react';
-import type { BranchDetailResponse, CreateOrderResponse } from '@brasa-viva/contracts';
+import {
+  orderTypeLabels,
+  type BranchDetailResponse,
+  type CreateOrderResponse
+} from '@brasa-viva/contracts';
 import { ApiRequestError, createOrder, getBranchDetail } from '../../lib/api';
 import { useCartStore } from '../cart/cart-store';
 import { useCartReady } from '../cart/use-cart-ready';
@@ -14,11 +18,6 @@ import {
   validateCheckout
 } from './checkout-validation';
 import { formatBs } from '../../lib/format';
-
-const orderTypeLabels: Record<CheckoutOrderType, string> = {
-  PICKUP: 'Recojo en sucursal',
-  DELIVERY: 'Delivery coordinado'
-};
 
 export function CheckoutForm() {
   const ready = useCartReady();

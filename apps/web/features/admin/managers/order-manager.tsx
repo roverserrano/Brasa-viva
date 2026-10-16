@@ -3,10 +3,12 @@
 import { useEffect, useState } from 'react';
 import {
   orderStatusLabels,
+  orderTypeLabels,
   permittedOrderTransitions,
   type OrderStatus
 } from '@brasa-viva/contracts';
 import { getAdminOrders, updateAdminOrderStatus } from '../../../lib/admin-api';
+import { formatBs } from '../../../lib/format';
 import { ManagerLayout, showError, type Notice } from './shared';
 
 export function OrderManager() {
@@ -84,15 +86,11 @@ export function OrderManager() {
                     </small>
                     <details>
                       <summary>Ver productos y entrega</summary>
-                      <p>
-                        {order.orderType === 'PICKUP'
-                          ? 'Recojo en sucursal'
-                          : 'Delivery coordinado'}
-                      </p>
+                      <p>{orderTypeLabels[order.orderType]}</p>
                       <ul>
                         {order.items.map((item) => (
                           <li key={item.id}>
-                            {item.quantity} × {item.productName} — Bs {item.lineTotal}
+                            {item.quantity} × {item.productName} — {formatBs(item.lineTotal)}
                           </li>
                         ))}
                       </ul>
@@ -105,7 +103,7 @@ export function OrderManager() {
                     <small>{order.customerPhone}</small>
                   </td>
                   <td data-label="Sucursal">{order.branchName}</td>
-                  <td data-label="Total">Bs {order.total}</td>
+                  <td data-label="Total">{formatBs(order.total)}</td>
                   <td data-label="Estado">
                     <strong>{orderStatusLabels[order.status]}</strong>
                     {permittedOrderTransitions[order.status].length ? (

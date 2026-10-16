@@ -1,6 +1,6 @@
 import { PublicLink as Link } from '../../../../components/site/public-link';
 import { getBranchDetail } from '../../../../lib/api';
-import { formatBusinessTime } from '../../../../lib/business-hours';
+import { formatBusinessTime, weekdayLabels } from '../../../../lib/business-hours';
 import { PageIntro } from '../../../../components/site/page-intro';
 import { SiteIcon } from '../../../../components/site/site-icon';
 
@@ -11,7 +11,6 @@ const serviceLabels = {
   DINE_IN: 'Consumo en local',
   QR_PAYMENT: 'Pago QR'
 } as const;
-const weekdayLabels = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 type BranchPageProps = { params: Promise<{ slug: string }> };
 
 export default async function BranchPage({ params }: BranchPageProps) {

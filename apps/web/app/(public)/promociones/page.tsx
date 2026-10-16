@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PageIntro } from '../../../components/site/page-intro';
 import { SiteIcon } from '../../../components/site/site-icon';
 import { getPromotions } from '../../../lib/api';
+import { formatBs } from '../../../lib/format';
 
 export const metadata = {
   title: 'Promociones',
@@ -35,14 +36,14 @@ export default async function PromotionsPage() {
             <h2>{promotion.name}</h2>
             {promotion.description ? <p>{promotion.description}</p> : null}
             {promotion.promoPrice ? (
-              <strong className="public-promo-value">Bs {promotion.promoPrice}</strong>
+              <strong className="public-promo-value">{formatBs(promotion.promoPrice)}</strong>
             ) : promotion.discountPercent ? (
               <strong className="public-promo-value">
                 {promotion.discountPercent.replace(/\.00$/, '')}% de descuento
               </strong>
             ) : promotion.discountAmount ? (
               <strong className="public-promo-value">
-                Bs {promotion.discountAmount} de descuento
+                {formatBs(promotion.discountAmount)} de descuento
               </strong>
             ) : null}
             <small>

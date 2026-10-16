@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createOrderRequestSchema } from './orders';
+import { createOrderRequestSchema, orderTypeLabels, orderTypeSchema } from './orders';
 
 const validRequest = {
   branchSlug: 'brasa-viva-centro',
@@ -34,5 +34,11 @@ describe('createOrderRequestSchema', () => {
         orderType: 'DELIVERY'
       })
     ).toThrow();
+  });
+});
+
+describe('orderTypeLabels', () => {
+  it('covers every supported order type', () => {
+    expect(Object.keys(orderTypeLabels).sort()).toEqual([...orderTypeSchema.options].sort());
   });
 });

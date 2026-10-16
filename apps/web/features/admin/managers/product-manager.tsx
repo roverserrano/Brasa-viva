@@ -11,6 +11,7 @@ import {
   updateAdminProduct
 } from '../../../lib/admin-api';
 import { getBranches } from '../../../lib/api';
+import { formatBs } from '../../../lib/format';
 import { canManageBranches, canManageCatalog, useAdminSession } from '../admin-shell';
 import { AdminForm } from '../admin-form';
 import {
@@ -282,7 +283,7 @@ export function ProductManager() {
                       <strong>{product.name}</strong>
                       <small>{product.categoryName}</small>
                     </td>
-                    <td data-label="Precio base">Bs {product.basePrice}</td>
+                    <td data-label="Precio base">{formatBs(product.basePrice)}</td>
                     <td data-label="Estado">{product.active ? 'Activo' : 'Inactivo'}</td>
                     <td data-label="Sucursales">
                       <BranchAssignments

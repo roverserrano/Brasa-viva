@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { CatalogResponse } from '@brasa-viva/contracts';
 import { ProductPhoto } from '../../components/site/product-photo';
+import { formatBs } from '../../lib/format';
 import { menuHref, type MenuContext } from '../../lib/menu-navigation';
 import { AddToCartButton } from '../cart/add-to-cart-button';
 
@@ -24,7 +25,7 @@ export function ProductCard({
           <h4>
             <Link href={href}>{product.name}</Link>
           </h4>
-          <span className="menu-product-price">Bs {product.price}</span>
+          <span className="menu-product-price">{formatBs(product.price)}</span>
         </div>
         <p>{product.description || 'Consulta los detalles de este producto.'}</p>
         <AddToCartButton branch={branch} product={product} />

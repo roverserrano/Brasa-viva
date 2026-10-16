@@ -4,6 +4,7 @@ import { productSeo, serializeJsonLd } from '../../../../lib/product-seo';
 import { PublicLink as Link } from '../../../../components/site/public-link';
 import { AddToCartButton } from '../../../../features/cart/add-to-cart-button';
 import { getBranchProduct, getBranches } from '../../../../lib/api';
+import { formatBs } from '../../../../lib/format';
 import { PageIntro } from '../../../../components/site/page-intro';
 import { ProductPhoto } from '../../../../components/site/product-photo';
 import { SiteIcon } from '../../../../components/site/site-icon';
@@ -121,7 +122,7 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
         <div>
           <p className="public-eyebrow">{product.category.name}</p>
           <h1 className="public-display">{product.name}</h1>
-          <p className="public-product-price">Bs {product.price}</p>
+          <p className="public-product-price">{formatBs(product.price)}</p>
           {product.description ? <p className="public-intro-copy">{product.description}</p> : null}
           <p className="public-image-note">
             <SiteIcon name="pin" /> {product.branch.name}

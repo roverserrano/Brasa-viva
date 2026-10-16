@@ -4,6 +4,7 @@ import { useEffect, useState, type FormEvent } from 'react';
 import { type AdminBranchResponse } from '@brasa-viva/contracts';
 import { createAdminBranch, getAdminBranches, updateAdminBranch } from '../../../lib/admin-api';
 import { AdminForm } from '../admin-form';
+import { weekdayLabels } from '../../../lib/business-hours';
 import { serviceLabels, branchStatusLabels } from '../admin-labels';
 import {
   ManagerLayout,
@@ -196,61 +197,59 @@ export function BranchManager() {
           <p className="admin-help">
             Activa los días de atención e ingresa las horas de apertura y cierre.
           </p>
-          {['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'].map(
-            (day, weekday) => {
-              const hour = form.businessHours.find((entry) => entry.weekday === weekday) ?? {
-                weekday,
-                opensAt: null,
-                closesAt: null,
-                isClosed: true
-              };
-              function change(values: Partial<typeof hour>) {
-                setForm({
-                  ...form,
-                  businessHours: [
-                    ...form.businessHours.filter((entry) => entry.weekday !== weekday),
-                    { ...hour, ...values }
-                  ]
-                });
-              }
-              return (
-                <div className="admin-hours-row" key={day}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={!hour.isClosed}
-                      onChange={(event) =>
-                        change({
-                          isClosed: !event.target.checked,
-                          opensAt: hour.opensAt ?? '11:00',
-                          closesAt: hour.closesAt ?? '22:00'
-                        })
-                      }
-                    />
-                    {day}
-                  </label>
-                  <label>
-                    Apertura
-                    <input
-                      type="time"
-                      disabled={hour.isClosed}
-                      value={hour.opensAt ?? ''}
-                      onChange={(event) => change({ opensAt: event.target.value || null })}
-                    />
-                  </label>
-                  <label>
-                    Cierre
-                    <input
-                      type="time"
-                      disabled={hour.isClosed}
-                      value={hour.closesAt ?? ''}
-                      onChange={(event) => change({ closesAt: event.target.value || null })}
-                    />
-                  </label>
-                </div>
-              );
+          {weekdayLabels.map((day, weekday) => {
+            const hour = form.businessHours.find((entry) => entry.weekday === weekday) ?? {
+              weekday,
+              opensAt: null,
+              closesAt: null,
+              isClosed: true
+            };
+            function change(values: Partial<typeof hour>) {
+              setForm({
+                ...form,
+                businessHours: [
+                  ...form.businessHours.filter((entry) => entry.weekday !== weekday),
+                  { ...hour, ...values }
+                ]
+              });
             }
-          )}
+            return (
+              <div className="admin-hours-row" key={day}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={!hour.isClosed}
+                    onChange={(event) =>
+                      change({
+                        isClosed: !event.target.checked,
+                        opensAt: hour.opensAt ?? '11:00',
+                        closesAt: hour.closesAt ?? '22:00'
+                      })
+                    }
+                  />
+                  {day}
+                </label>
+                <label>
+                  Apertura
+                  <input
+                    type="time"
+                    disabled={hour.isClosed}
+                    value={hour.opensAt ?? ''}
+                    onChange={(event) => change({ opensAt: event.target.value || null })}
+                  />
+                </label>
+                <label>
+                  Cierre
+                  <input
+                    type="time"
+                    disabled={hour.isClosed}
+                    value={hour.closesAt ?? ''}
+                    onChange={(event) => change({ closesAt: event.target.value || null })}
+                  />
+                </label>
+              </div>
+            );
+          })}
         </fieldset>
         <div className="admin-action-row">
           <button type="submit" className="admin-primary-button">
