@@ -33,7 +33,7 @@ out/
 # Local artifacts excluded from the public repository
 .agent
 .agents
-codex-guides/
+codex guides/
 docs/
 postgresql/
 prisma/
