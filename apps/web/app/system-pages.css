@@ -87,7 +87,12 @@
   height: 19rem;
   border: 1px solid var(--bv-line);
   border-radius: var(--bv-radius-md);
-  background: linear-gradient(100deg, var(--bv-card) 40%, var(--bv-surface) 50%, var(--bv-card) 60%);
+  background: linear-gradient(
+    100deg,
+    var(--bv-card) 40%,
+    var(--bv-surface) 50%,
+    var(--bv-card) 60%
+  );
   background-size: 220% 100%;
   animation: skeleton-sweep 1.6s ease-in-out infinite;
 }

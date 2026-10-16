@@ -1,2 +1,2 @@
-import { ProductManager } from '../../../../features/admin/admin-managers';
+import { ProductManager } from '../../../../features/admin/managers/product-manager';
 export default function AdminProductsPage() { return <ProductManager />; }
