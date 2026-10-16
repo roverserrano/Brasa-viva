@@ -188,12 +188,12 @@ convencional, permitiendo revertir una etapa sin tocar el resto.
 - [x] FASE 1 — Auditoría y baseline (gates verdes; hallazgos registrados).
 - [x] FASE 2 — Skills instaladas y verificadas.
 - [x] ExecPlan creado.
-- [ ] FASE 3 — DESIGN.md.
-- [ ] FASE 4 — Refactor frontend.
-- [ ] FASE 5 — Refactor/verificación backend.
-- [ ] FASE 6 — Auditoría web design guidelines + correcciones.
-- [ ] FASE 7 — Playwright QA + capturas.
-- [ ] FASE 8 — Entregables e informe.
+- [x] FASE 3 — DESIGN.md.
+- [x] FASE 4 — Refactor frontend (tokens, a11y, dedupe, split de managers).
+- [x] FASE 5 — Refactor/verificación backend (precio efectivo consolidado; 33 tests API).
+- [x] FASE 6 — Auditoría web design guidelines + correcciones.
+- [x] FASE 7 — Playwright QA + capturas (e2e 17/17 en verde; capturas antes/después de 13 vistas × 4 viewports; consola 15 → 0).
+- [x] FASE 8 — Entregables e informe (`docs/REFACTOR_REPORT.md`, DESIGN.md actualizado, capturas versionadas).
 
 ## Decisiones
 
@@ -215,7 +215,25 @@ convencional, permitiendo revertir una etapa sin tocar el resto.
 - Playwright y Chrome ya están disponibles en el entorno (chromium-1223 + google-chrome).
 - PostgreSQL local activo; `.env` presente con DATABASE_URL configurada.
 - El CLI de turbo añadió un bloque gestionado a `AGENTS.md` (reglas para agentes); se conserva.
+- La suite e2e arrastraba 4 fallos desde el baseline, todos defectos de test (no de la app):
+  `getByLabel(x, { exact: true })` sobre labels que envuelven un `select` nunca coincide
+  (Playwright compara el texto del label incluyendo las opciones), `getByRole('alert')` choca
+  con el route announcer de Next, y un clic con `reload()` inmediato recargaba la página
+  anterior por una carrera con la navegación SPA. Corregidos los 5 puntos: 17/17 en verde.
+- `resolve-effective-price.ts` era código muerto; ahora es el único punto de cálculo del precio
+  efectivo para productos y pedidos (behavior-preserving, cubierto por los 33 tests de API).
 
 ## Resultado final
 
-Pendiente de completar al terminar la ejecución.
+Refactorización completada el 2026-10-15. Verificación final:
+
+- `pnpm lint` ✅ (5/5) · `pnpm typecheck` ✅ (5/5) · `pnpm test` ✅ (77 tests) ·
+  `pnpm build` ✅ (5/5) · `pnpm test:e2e` ✅ (17/17).
+- Consola del navegador: 15 avisos LCP antes → 0 después (52 navegaciones × 4 viewports).
+- `DESIGN.md` en raíz; capturas antes/después en `docs/design-previews/refactor-qa/`;
+  informe de entregables en `docs/REFACTOR_REPORT.md`.
+- Sin cambios de contrato ni de esquema Prisma; baseline de rollback `5a9bed4`.
+
+Criterios de aceptación: todos cumplidos (ver informe para el detalle y los pendientes
+documentados: `docs/PUBLIC_DESIGN.md` obsoleto, paleta de gráficos del dashboard,
+`audit_logs.request_id/client_ip` y `ValidationPipe`).

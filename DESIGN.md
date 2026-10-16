@@ -52,6 +52,7 @@ Definidos en `apps/web/app/tokens.css` como custom properties globales. Valores 
 | `--bv-paper` | `#faf5eb` | Fondo de la experiencia pública |
 | `--bv-card` | `#fffcf6` | Tarjetas de producto y paneles |
 | `--bv-surface` | `#fffaf1` | Superficies elevadas (login, popovers) |
+| `--bv-brasa-tint` | `#fbf1e8` | Tinte cálido de estados seleccionados (tarjetas de opción del checkout) |
 
 ### Carbón y neutros cálidos
 
@@ -121,7 +122,7 @@ Definidos en `apps/web/app/tokens.css` como custom properties globales. Valores 
 | Cuerpo | sans | `1rem` | 400 | 1.55 | Texto general ≥16px |
 | Pequeño | sans | `0.875rem` | 400–700 | 1.5 | Metadatos, ayuda |
 | Overline / eyebrow | sans | `0.72–0.78rem` | 800 | 1.2 | MAYÚSCULAS, `letter-spacing: 0.14em`, color brasa |
-| Precio | sans | según contexto | 700 | 1 | `font-variant-numeric: tabular-nums`, prefijo `Bs.` |
+| Precio | sans | según contexto | 700 | 1 | `font-variant-numeric: tabular-nums`, formato `Bs 32,00` (`formatBs`) |
 
 **Reglas tipográficas:**
 
@@ -226,6 +227,9 @@ accesible cuando la acción destruya datos del usuario (carrito completo). Nunca
 - Los mensajes dinámicos usan una región `aria-live` única (no anidar `role="status"` dentro
   de enlaces).
 - Objetivos táctiles ≥ 44×44 px; `touch-action: manipulation`.
+- Estados `:active` breves (desplazamiento/escala sutiles ≤2 px) en botones públicos y admin
+  para dar respuesta al pulsar; `-webkit-tap-highlight-color` tintado en brasa en lugar del
+  resaltado gris por defecto.
 - `prefers-reduced-motion: reduce` desactiva transiciones y scroll suave (ya global).
 - Zoom del navegador nunca bloqueado (`user-scalable` intacto).
 - Formularios: autocompletar correcto (`name`, `email`, `tel`, `street-address`), `for`/`id`
@@ -261,7 +265,9 @@ etiquetas `data-label`.
 
 - Español de Bolivia, segunda persona ("Elige tu sucursal"), voz activa, sin clichés
   ("eleva", "sinergia", "revoluciona").
-- Moneda siempre `Bs.` con `Intl.NumberFormat('es-BO')` y `tabular-nums`.
+- Moneda siempre `Bs` con `Intl.NumberFormat('es-BO')` (coma decimal, punto de miles) a través de
+  `formatBs` de `apps/web/lib/format.ts` (incluye espacio duro U+00A0 entre `Bs` y el importe);
+  ningún componente interpola el prefijo manualmente. Cifras con `tabular-nums`.
 - Fechas con `Intl.DateTimeFormat('es-BO')`; zona horaria del negocio: `America/La_Paz`.
 - Errores: qué pasó y qué hacer ("No pudimos registrar tu pedido. Revisa los datos e
   inténtalo de nuevo.").
@@ -278,6 +284,9 @@ etiquetas `data-label`.
   utilidades sueltas en pantallas nuevas salvo en el panel admin donde ya exista el patrón.
 - Antes de cambiar estilos: capturar pantalla (script `apps/web/scripts/capture-screenshots.mjs`),
   aplicar, volver a capturar y comparar en 375/430/768/1440.
+- `app/layout.tsx` declara `themeColor` (crema `#faf5eb`; el admin lo sobreescribe con su verde
+  `#142e2a`) y `data-scroll-behavior="smooth"` en `<html>` para que Next 16 mantenga el scroll
+  instantáneo en transiciones de ruta sin perder el scroll suave en anclas.
 
 ## 12. Gobernanza
 
