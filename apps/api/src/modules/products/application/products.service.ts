@@ -7,6 +7,7 @@ import {
   type ProductResponse
 } from '@brasa-viva/contracts';
 import { BranchesService } from '../../branches/application/branches.service';
+import { effectivePrice } from '../domain/resolve-effective-price';
 import { ProductsRepository } from '../infrastructure/products.repository';
 
 @Injectable()
@@ -66,7 +67,7 @@ export class ProductsService {
       images: Array<{ storagePath: string }>;
     };
   }): ProductResponse {
-    const price = branchProduct.priceOverride ?? branchProduct.product.basePrice;
+    const price = effectivePrice(branchProduct.product.basePrice, branchProduct.priceOverride);
 
     return {
       id: branchProduct.product.id,

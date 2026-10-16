@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { resolveEffectivePrice } from './resolve-effective-price';
+import { effectivePrice, resolveEffectivePrice } from './resolve-effective-price';
+
+describe('effectivePrice', () => {
+  it('prefers the branch override', () => {
+    expect(effectivePrice('32.00', '35.00').toString()).toBe('35.00');
+  });
+
+  it('falls back to the base price when there is no override', () => {
+    expect(effectivePrice('32.00', null).toString()).toBe('32.00');
+  });
+});
 
 describe('resolveEffectivePrice', () => {
   it('uses the base price for an active product available in the branch', () => {

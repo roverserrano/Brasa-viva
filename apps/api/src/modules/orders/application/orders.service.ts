@@ -4,6 +4,7 @@ import {
   type CreateOrderRequest,
   type CreateOrderResponse
 } from '@brasa-viva/contracts';
+import { effectivePrice } from '../../products/domain/resolve-effective-price';
 import { calculateOrder } from '../domain/order-pricing';
 import { buildWhatsAppUrl } from '../domain/whatsapp';
 import { OrdersRepository } from '../infrastructure/orders.repository';
@@ -61,7 +62,10 @@ export class OrdersService {
         branchProducts.map((branchProduct) => ({
           productId: branchProduct.productId,
           name: branchProduct.product.name,
-          unitPrice: branchProduct.priceOverride ?? branchProduct.product.basePrice,
+          unitPrice: effectivePrice(
+            branchProduct.product.basePrice,
+            branchProduct.priceOverride
+          ),
           quantity: requestedQuantityByProductId.get(branchProduct.productId) ?? 0
         })),
         promotions
