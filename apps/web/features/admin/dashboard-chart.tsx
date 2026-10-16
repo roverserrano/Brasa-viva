@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import type { DashboardInsights } from '@brasa-viva/contracts';
-import { formatBolivianos, formatCount, formatDashboardDate } from './dashboard-format';
+import { formatBs, formatCount } from '../../lib/format';
+import { formatDashboardDate } from './dashboard-format';
 
 export function DashboardChart({ daily }: { daily: DashboardInsights['daily'] }) {
   const [metric, setMetric] = useState<'orders' | 'amount'>('orders');
@@ -16,7 +17,7 @@ export function DashboardChart({ daily }: { daily: DashboardInsights['daily'] })
   }));
   const line = points.map((point) => `${point.x},${point.y}`).join(' ');
   const display = (value: number) =>
-    metric === 'orders' ? formatCount(value) : formatBolivianos(value);
+    metric === 'orders' ? formatCount(value) : formatBs(value);
   return (
     <section className="executive-card dashboard-evolution">
       <div className="dashboard-panel-heading">
@@ -149,7 +150,7 @@ export function DashboardChart({ daily }: { daily: DashboardInsights['daily'] })
                     <tr key={day.date}>
                       <td data-label="Fecha">{formatDashboardDate(day.date)}</td>
                       <td data-label="Pedidos">{formatCount(day.orders)}</td>
-                      <td data-label="Importe">{formatBolivianos(day.amount)}</td>
+                      <td data-label="Importe">{formatBs(day.amount)}</td>
                     </tr>
                   ))}
                 </tbody>

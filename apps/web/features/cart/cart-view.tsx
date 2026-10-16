@@ -4,12 +4,7 @@ import { PublicLink as Link } from '../../components/site/public-link';
 import { useCartStore } from './cart-store';
 import { useCartReady } from './use-cart-ready';
 import { maxCartQuantity } from './cart-data';
-
-const bolivianos = new Intl.NumberFormat('es-BO', {
-  style: 'currency',
-  currency: 'BOB',
-  minimumFractionDigits: 2
-});
+import { formatBs } from '../../lib/format';
 
 export function CartView() {
   const ready = useCartReady();
@@ -59,7 +54,7 @@ export function CartView() {
             <div>
               <h2 className="text-lg font-black">{item.name}</h2>
               <p className="mt-1 text-sm text-stone-700">
-                {bolivianos.format(Number(item.unitPrice))} c/u
+                {formatBs(item.unitPrice)} c/u
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -104,9 +99,9 @@ export function CartView() {
           <p
             className="mt-1 text-3xl font-black"
             role="status"
-            aria-label={`Subtotal estimado: ${bolivianos.format(estimatedSubtotal)}`}
+            aria-label={`Subtotal estimado: ${formatBs(estimatedSubtotal)}`}
           >
-            {bolivianos.format(estimatedSubtotal)}
+            {formatBs(estimatedSubtotal)}
           </p>
           <p className="mt-2 text-xs leading-5 text-stone-500">
             El precio y las promociones se confirmarán antes de registrar el pedido.

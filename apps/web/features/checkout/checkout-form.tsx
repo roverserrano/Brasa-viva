@@ -13,12 +13,7 @@ import {
   type CheckoutOrderType,
   validateCheckout
 } from './checkout-validation';
-
-const bolivianos = new Intl.NumberFormat('es-BO', {
-  style: 'currency',
-  currency: 'BOB',
-  minimumFractionDigits: 2
-});
+import { formatBs } from '../../lib/format';
 
 const orderTypeLabels: Record<CheckoutOrderType, string> = {
   PICKUP: 'Recojo en sucursal',
@@ -352,7 +347,7 @@ export function CheckoutForm() {
                 <strong>{item.quantity}×</strong> {item.name}
               </span>
               <span className="whitespace-nowrap font-bold">
-                {bolivianos.format(Number(item.unitPrice) * item.quantity)}
+                {formatBs(Number(item.unitPrice) * item.quantity)}
               </span>
             </li>
           ))}
@@ -360,7 +355,7 @@ export function CheckoutForm() {
         <div className="mt-5 flex items-end justify-between gap-4">
           <div>
             <p className="text-sm text-stone-300">Total estimado</p>
-            <p className="mt-1 text-3xl font-black">{bolivianos.format(estimatedSubtotal)}</p>
+            <p className="mt-1 text-3xl font-black">{formatBs(estimatedSubtotal)}</p>
           </div>
           <span className="rounded-full bg-stone-800 px-3 py-1 text-xs font-bold">
             No incluye delivery
@@ -417,18 +412,18 @@ function OrderConfirmation({ order }: { order: CreateOrderResponse }) {
               <span>
                 {item.quantity}× {item.productName}
               </span>
-              <span className="font-bold">{bolivianos.format(Number(item.lineTotal))}</span>
+              <span className="font-bold">{formatBs(item.lineTotal)}</span>
             </li>
           ))}
         </ul>
         {Number(order.discountTotal) > 0 ? (
           <p className="mt-4 text-sm text-yellow-300">
-            Promociones aplicadas: −{bolivianos.format(Number(order.discountTotal))}
+            Promociones aplicadas: −{formatBs(order.discountTotal)}
           </p>
         ) : null}
         <div className="mt-4 flex items-end justify-between gap-4">
           <span className="text-sm text-stone-300">Total confirmado</span>
-          <strong className="text-3xl">{bolivianos.format(Number(order.total))}</strong>
+          <strong className="text-3xl">{formatBs(order.total)}</strong>
         </div>
       </div>
       <div className="mt-6 flex flex-wrap gap-4">

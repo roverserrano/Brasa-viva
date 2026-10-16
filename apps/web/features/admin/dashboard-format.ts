@@ -1,9 +1,3 @@
-export function formatBolivianos(value: string | number): string {
-  return `Bs ${new Intl.NumberFormat('es-BO', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(value))}`;
-}
-export function formatCount(value: number): string {
-  return new Intl.NumberFormat('es-BO').format(value);
-}
 export function formatDashboardDate(value: string): string {
   return new Intl.DateTimeFormat('es-BO', {
     day: 'numeric',

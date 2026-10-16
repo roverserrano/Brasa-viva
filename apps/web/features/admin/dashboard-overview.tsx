@@ -3,12 +3,8 @@ import Link from 'next/link';
 import { orderStatusLabels, type DashboardInsights } from '@brasa-viva/contracts';
 import { AdminIcon, type AdminIconName } from './admin-icon';
 import { DashboardChart } from './dashboard-chart';
-import {
-  comparisonLabel,
-  formatBolivianos,
-  formatCount,
-  formatDashboardDate
-} from './dashboard-format';
+import { formatBs, formatCount } from '../../lib/format';
+import { comparisonLabel, formatDashboardDate } from './dashboard-format';
 const statusColors = ['#d58a2a', '#4d85a0', '#7465ad', '#47a594', '#187564', '#a9676a'];
 export function DashboardOverview({
   data,
@@ -32,7 +28,7 @@ export function DashboardOverview({
       <div className="executive-metrics" aria-label="Indicadores del período">
         <Metric
           label="Importe de pedidos"
-          value={formatBolivianos(current.amount)}
+          value={formatBs(current.amount)}
           detail="Excluye pedidos cancelados"
           compare={comparisonLabel(Number(current.amount), Number(previous.amount))}
           icon="wallet"
@@ -47,7 +43,7 @@ export function DashboardOverview({
         />
         <Metric
           label="Ticket promedio"
-          value={formatBolivianos(current.averageTicket)}
+          value={formatBs(current.averageTicket)}
           detail="Por pedido no cancelado"
           compare={comparisonLabel(Number(current.averageTicket), Number(previous.averageTicket))}
           icon="trend"
@@ -136,7 +132,7 @@ export function DashboardOverview({
                     <small>{formatCount(branch.orders)} pedidos</small>
                   </span>
                   <span className="dashboard-branch-value">
-                    {formatBolivianos(branch.amount)}
+                    {formatBs(branch.amount)}
                     <AdminIcon name="arrow" />
                   </span>
                 </button>
