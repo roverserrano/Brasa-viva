@@ -1,0 +1,20 @@
+{
+  "name": "@brasa-viva/types",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "test:e2e": "vitest run --passWithNoTests"
+  },
+  "devDependencies": {
+    "vitest": "^4.0.8"
+  }
+}
+

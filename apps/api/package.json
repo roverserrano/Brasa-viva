@@ -1,0 +1,40 @@
+{
+  "name": "@brasa-viva/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --dir ../.. prisma:generate && nest build",
+    "dev": "node --import tsx --watch src/main.ts",
+    "lint": "eslint src --max-warnings=0",
+    "typecheck": "pnpm --dir ../.. prisma:generate && tsc --noEmit",
+    "test": "vitest run src --passWithNoTests",
+    "test:e2e": "vitest run test --passWithNoTests"
+  },
+  "dependencies": {
+    "@brasa-viva/contracts": "workspace:*",
+    "@nestjs/common": "^11.1.12",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.12",
+    "@nestjs/platform-express": "^11.1.12",
+    "@nestjs/swagger": "^11.2.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.11",
+    "@nestjs/testing": "^11.1.12",
+    "@types/pg": "^8.15.6",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.4",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "vitest": "^4.0.8"
+  }
+}
