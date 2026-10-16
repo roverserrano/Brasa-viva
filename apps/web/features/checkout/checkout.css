@@ -1,7 +1,7 @@
 /* Shared restaurant identity throughout purchase. No administrative selectors. */
 .checkout-header {
   border-bottom: 1px solid var(--public-line);
-  background: #fffaf2;
+  background: var(--bv-surface);
 }
 .checkout-header > div {
   display: flex;
@@ -63,7 +63,7 @@
   font-weight: 700;
 }
 .purchase-steps [aria-current] .purchase-step-number {
-  color: #fffaf2;
+  color: var(--bv-surface);
   background: var(--public-red);
   border-color: var(--public-red);
 }
@@ -83,7 +83,7 @@
 }
 .checkout-card {
   padding: clamp(1.25rem, 3vw, 2rem);
-  background: #fffcf6;
+  background: var(--bv-card);
   border: 1px solid var(--public-line);
   border-radius: 0.75rem;
   box-shadow: 0 12px 36px #39271905;

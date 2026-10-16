@@ -1,0 +1,81 @@
+/* Sistema de diseño Brasa Viva — tokens canónicos.
+ * Ver DESIGN.md. Importado primero por globals.css.
+ * Ningún componente debe introducir hex de marca fuera de este archivo.
+ */
+:root {
+  color-scheme: light;
+
+  /* Tipografía */
+  --bv-font-display: Georgia, 'Times New Roman', serif;
+  --bv-font-sans: Arial, Helvetica, sans-serif;
+
+  /* Marca — rojo brasa */
+  --bv-brasa: #ae2b21;
+  --bv-brasa-strong: #8d2119;
+  --bv-brasa-deep: #822c22;
+  --bv-brasa-bright: #c63825;
+  --bv-brasa-crimson: #b91c1c;
+  --bv-brasa-admin: #991b1b;
+  --bv-brasa-dark: #6c1616;
+  --bv-brasa-night: #2a0e0e;
+  --bv-focus: #b34c00;
+
+  /* Crema y papel */
+  --bv-cream: #fff7e8;
+  --bv-paper: #faf5eb;
+  --bv-card: #fffcf6;
+  --bv-surface: #fffaf1;
+
+  /* Carbón y neutros cálidos */
+  --bv-carbon: #1c1917;
+  --bv-carbon-soft: #27241f;
+  --bv-carbon-deep: #201b16;
+  --bv-carbon-code: #292524;
+  --bv-ink: #27241f;
+  --bv-muted: #686156;
+  --bv-line: #ded7cb;
+  --bv-line-strong: #c4b9a8;
+
+  /* Cobre, ámbar y oliva */
+  --bv-copper: #edac7d;
+  --bv-copper-deep: #bf7845;
+  --bv-copper-bright: #e8a15a;
+  --bv-amber: #fbbf24;
+  --bv-olive: #35483d;
+
+  /* Semánticos */
+  --bv-success: #166534;
+  --bv-success-bg: #dcfce7;
+  --bv-danger: #991b1b;
+  --bv-danger-bg: #fee2e2;
+
+  /* Admin ejecutivo */
+  --bv-admin-ink: #213632;
+  --bv-admin-muted: #647572;
+  --bv-admin-accent: #167461;
+  --bv-admin-accent-strong: #176551;
+  --bv-admin-deep: #203f35;
+  --bv-admin-forest: #173e33;
+  --bv-admin-sidebar: #142e2a;
+  --bv-admin-bg: #f3f6f6;
+  --bv-admin-line: #e0e8e4;
+  --bv-admin-surface: #edf1ee;
+  --bv-admin-focus: #c07836;
+
+  /* Radios */
+  --bv-radius-xs: 0.25rem;
+  --bv-radius-sm: 0.55rem;
+  --bv-radius-md: 0.8rem;
+  --bv-radius-lg: 1.35rem;
+
+  /* Sombras */
+  --bv-shadow-card: 0 0.4rem 1.1rem rgb(28 25 23 / 5%);
+  --bv-shadow-float: 0 10px 35px rgb(33 22 15 / 23%);
+  --bv-shadow-overlay: 0 1.5rem 4rem rgb(0 0 0 / 30%);
+
+  /* Capas */
+  --bv-z-header: 10;
+  --bv-z-dock: 20;
+  --bv-z-skip: 100;
+  --bv-z-overlay: 200;
+}

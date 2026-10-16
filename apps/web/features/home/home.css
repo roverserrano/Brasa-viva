@@ -1,7 +1,7 @@
 /* Editorial home: image-led composition, isolated from catalog and admin layouts. */
 .home-refined {
-  --home-olive: #35483d;
-  --home-copper: #edac7d;
+  --home-olive: var(--bv-olive);
+  --home-copper: var(--bv-copper);
 }
 .home-hero {
   position: relative;
@@ -12,7 +12,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #201b16;
+  background: var(--bv-carbon-deep);
   color: #fff6e7;
 }
 .home-hero-image {
@@ -44,7 +44,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #e8a15a;
+  background: var(--bv-copper-bright);
 }
 .home-hero h1 {
   font-size: clamp(3.5rem, 5.7vw, 5.8rem);
@@ -62,12 +62,12 @@
   margin: 1.7rem 0 2rem;
 }
 .home-hero .public-button {
-  background: #c63825;
+  background: var(--bv-brasa-bright);
   padding: 1.1rem 1.6rem;
   box-shadow: 0 8px 30px rgb(0 0 0 / 12%);
 }
 .home-hero .public-button:hover {
-  background: #a52c1d;
+  background: var(--bv-brasa-strong);
 }
 .home-secondary-link {
   display: inline-flex;
@@ -195,7 +195,7 @@
   isolation: isolate;
   border-radius: 0.8rem;
   overflow: hidden;
-  color: #fff7e8;
+  color: var(--bv-cream);
   background: #2a211b;
 }
 .signature-card:first-child {
@@ -231,7 +231,7 @@
   border-radius: 0.25rem;
 }
 .signature-tag > span {
-  color: #9f2d21;
+  color: var(--bv-brasa);
   font-size: 0.6rem;
 }
 .signature-card-copy {
@@ -266,7 +266,7 @@
 .home-sharing {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  background: #942d24;
+  background: var(--bv-brasa-deep);
   color: #fff4e0;
   border-radius: 0.9rem;
   overflow: hidden;
@@ -322,7 +322,7 @@
   border: 1px solid var(--public-line);
   border-radius: 0.7rem;
   padding: 1.7rem;
-  background: #fffaf1;
+  background: var(--bv-surface);
 }
 .home-step-top {
   display: flex;
@@ -670,7 +670,7 @@
 .home-branches-loading {
   min-height: 30rem;
   padding-top: 4rem;
-  color: #686156;
+  color: var(--bv-muted);
 }
 .home-branch-fallback {
   padding: 1.5rem;

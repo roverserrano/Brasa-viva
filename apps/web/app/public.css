@@ -1,11 +1,11 @@
 /* Public restaurant identity. Administrative screens keep their existing styles. */
 .public-shell {
-  --public-paper: #faf6ed;
-  --public-ink: #27241f;
-  --public-red: #ae2b21;
-  --public-muted: #686156;
-  --public-line: #ded7cb;
-  --public-serif: Georgia, 'Times New Roman', serif;
+  --public-paper: var(--bv-paper);
+  --public-ink: var(--bv-ink);
+  --public-red: var(--bv-brasa);
+  --public-muted: var(--bv-muted);
+  --public-line: var(--bv-line);
+  --public-serif: var(--bv-font-display);
   background: var(--public-paper);
   color: var(--public-ink);
   font-family: Arial, Helvetica, sans-serif;
@@ -44,8 +44,8 @@
   gap: 1rem;
   min-height: 48px;
   padding: 0.95rem 1.4rem;
-  background: var(--public-red, #ae2b21);
-  color: #fff9ef;
+  background: var(--public-red, var(--bv-brasa));
+  color: var(--bv-cream);
   border: 1px solid transparent;
   border-radius: 0.4rem;
   font-size: 0.85rem;
@@ -57,7 +57,7 @@
     transform 0.2s;
 }
 .public-button:hover {
-  background: #8d2119;
+  background: var(--bv-brasa-strong);
   transform: translateY(-2px);
 }
 .public-button-light {
@@ -108,7 +108,7 @@
 .public-shell a:focus-visible,
 .public-shell button:focus-visible,
 .public-shell summary:focus-visible {
-  outline: 3px solid #b34c00;
+  outline: 3px solid var(--bv-focus);
   outline-offset: 4px;
 }
 .public-image-note {
@@ -130,7 +130,7 @@
   place-items: center;
   width: 42px;
   height: 46px;
-  color: #ae2b21;
+  color: var(--bv-brasa);
 }
 .site-brand-symbol svg {
   width: 36px;
@@ -151,7 +151,7 @@
   color: #29231f;
 }
 .site-brand-dot {
-  color: #ae2b21;
+  color: var(--bv-brasa);
 }
 .site-brand-city {
   font-family: Arial, Helvetica, sans-serif;
@@ -224,7 +224,7 @@
 .site-cart-count {
   display: grid;
   place-items: center;
-  background: #ae2b21;
+  background: var(--bv-brasa);
   color: #fff;
   border-radius: 50%;
   min-width: 21px;
@@ -292,7 +292,7 @@
 .site-footer-grid p {
   max-width: 280px;
   font-size: 0.8rem;
-  color: #c4b9a8;
+  color: var(--bv-line-strong);
   line-height: 1.8;
   margin-top: 1rem;
 }
@@ -311,7 +311,7 @@
   align-items: center;
   min-height: 44px;
   font-size: 0.78rem;
-  color: #c4b9a8;
+  color: var(--bv-line-strong);
   width: fit-content;
 }
 .site-footer a:hover {
@@ -325,7 +325,7 @@
   padding-block: 1.5rem;
   border-top: 1px solid #504a40;
   font-size: 0.65rem;
-  color: #c4b9a8;
+  color: var(--bv-line-strong);
 }
 
 .public-page {
@@ -366,7 +366,7 @@
   border: 1px dashed #bdb09b;
   border-radius: 0.5rem;
   margin-top: 1rem;
-  background: #fffaf2;
+  background: var(--bv-surface);
 }
 .public-empty > svg {
   color: var(--public-red);
@@ -420,7 +420,7 @@
   padding: 0.8rem 1rem;
   border: 1px solid #c7bba8;
   border-radius: 0.35rem;
-  background: #faf6ed;
+  background: var(--bv-paper);
   font-size: 0.8rem;
   font-weight: 700;
 }
@@ -488,7 +488,7 @@
 .menu-search input {
   width: 100%;
   min-height: 48px;
-  background: #fffcf6;
+  background: var(--bv-card);
   border: 1px solid #cfc5b4;
   border-radius: 0.4rem;
   padding: 0.8rem 0.85rem 0.8rem 2.6rem;
@@ -541,7 +541,7 @@
   border: 1px solid var(--public-line);
   border-radius: 0.6rem;
   overflow: hidden;
-  background: #fffcf6;
+  background: var(--bv-card);
 }
 .product-photo {
   position: relative;
@@ -578,7 +578,7 @@
   top: 0.8rem;
   left: 0.8rem;
   background: #fff6e6;
-  color: #8a251c;
+  color: var(--bv-brasa-strong);
   border-radius: 0.15rem;
   font-size: 0.56rem;
   font-weight: 700;
@@ -621,7 +621,7 @@
   min-height: 48px;
 }
 .public-shell .cart-add > button:first-child:hover {
-  background: #8d2119;
+  background: var(--bv-brasa-strong);
 }
 .public-shell .cart-add > p:empty {
   display: none;
@@ -640,7 +640,7 @@
 .public-branch-card {
   position: relative;
   padding: 2rem;
-  background: #fffcf6;
+  background: var(--bv-card);
   border: 1px solid var(--public-line);
   border-radius: 0.6rem;
 }
@@ -772,7 +772,7 @@
   padding: 1.75rem;
   border: 1px solid var(--public-line);
   border-radius: 0.5rem;
-  background: #fffcf6;
+  background: var(--bv-card);
 }
 .public-detail-panel h2 {
   display: flex;
@@ -877,7 +877,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: #faf6ed;
+    background: var(--bv-paper);
     padding: 1rem;
     border-bottom: 1px solid var(--public-line);
     box-shadow: 0 18px 25px rgb(40 30 20 / 10%);
@@ -898,7 +898,7 @@
   .site-nav .site-nav-order {
     display: inline-flex;
     margin-top: 0.5rem;
-    color: #fff9ef;
+    color: var(--bv-cream);
   }
   .public-section-heading {
     display: grid;
@@ -961,8 +961,6 @@
 
 /* Shared navigation and catalog refinements. */
 .public-shell {
-  --public-paper: #faf5eb;
-  --public-red: #ac3023;
   padding-bottom: 0;
 }
 .public-shell .public-button {
@@ -981,7 +979,7 @@
 }
 .site-nav > a[aria-current='page'] {
   box-shadow: none;
-  color: #96271c;
+  color: var(--bv-brasa);
 }
 .site-nav > a[aria-current='page']::after {
   content: '';
@@ -1003,7 +1001,7 @@
   width: min(420px, calc(100% - 3rem));
   padding: 0.7rem 1rem;
   border-radius: 0.8rem;
-  background: #822c22;
+  background: var(--bv-brasa-deep);
   border: 1px solid #f1cbaa;
   box-shadow: 0 10px 35px rgb(33 22 15 / 23%);
 }
@@ -1069,7 +1067,7 @@
     border-color 0.2s;
 }
 .public-branch-option:hover {
-  border-color: #ac3023;
+  border-color: var(--bv-brasa);
 }
 .menu-search input {
   font-size: 1rem;
@@ -1089,7 +1087,7 @@
     color 0.18s;
 }
 .menu-category-nav button:hover {
-  border-color: #9e3a27;
+  border-color: var(--bv-brasa);
 }
 .menu-product-card {
   box-shadow: 0 5px 20px rgb(58 37 19 / 3%);
@@ -1153,7 +1151,7 @@
   }
   .site-mobile-dock > a[aria-current='page'] {
     background: #f5e6d6;
-    color: #a33123;
+    color: var(--bv-brasa);
   }
   .dock-icon {
     position: relative;
@@ -1173,7 +1171,7 @@
     padding-inline: 3px;
     display: grid;
     place-items: center;
-    background: #a33123;
+    background: var(--bv-brasa);
     color: white;
     font-size: 0.55rem;
   }
@@ -1232,7 +1230,7 @@
   padding: 0.65rem 2rem 0.65rem 0.75rem;
   border: 1px solid var(--public-line);
   border-radius: 0.4rem;
-  background: #fffcf6;
+  background: var(--bv-card);
   color: var(--public-ink);
   font: inherit;
 }

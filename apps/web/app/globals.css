@@ -1,13 +1,15 @@
+@import './tokens.css';
 @import 'tailwindcss';
 @import './public.css';
 @import '../features/home/home.css';
 @import '../features/checkout/checkout.css';
 
 :root {
-  --brand-red: #b91c1c;
-  --brand-yellow: #fbbf24;
-  --brand-cream: #fff7e8;
-  --brand-charcoal: #1c1917;
+  /* Alias heredados; migrar usos a los tokens --bv-* al tocar cada zona. */
+  --brand-red: var(--bv-brasa-crimson);
+  --brand-yellow: var(--bv-amber);
+  --brand-cream: var(--bv-cream);
+  --brand-charcoal: var(--bv-carbon);
 }
 
 * {
@@ -32,8 +34,14 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--brand-yellow);
+  outline: 3px solid var(--bv-focus);
   outline-offset: 3px;
+}
+
+/* Sobre superficies oscuras del acceso administrativo el foco usa ámbar. */
+.admin-loading :focus-visible,
+.admin-login-page :focus-visible {
+  outline-color: var(--bv-amber);
 }
 
 .admin-loading,
@@ -42,15 +50,15 @@ a {
   display: grid;
   place-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #2a0e0e, #6c1616 55%, #b91c1c);
-  color: #fff7e8;
+  background: linear-gradient(135deg, var(--bv-brasa-night), var(--bv-brasa-dark) 55%, var(--bv-brasa-crimson));
+  color: var(--bv-cream);
 }
 
 .admin-login-card {
   width: min(100%, 29rem);
   padding: clamp(1.5rem, 5vw, 3rem);
   border-radius: 1.5rem;
-  background: #fffaf1;
+  background: var(--bv-surface);
   color: var(--brand-charcoal);
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 30%);
 }
@@ -132,7 +140,7 @@ a {
 }
 
 .admin-primary-button {
-  background: #991b1b;
+  background: var(--bv-brasa-admin);
   color: #fff;
 }
 
@@ -152,7 +160,7 @@ a {
 .admin-inline-button {
   padding: 0;
   background: transparent;
-  color: #b91c1c;
+  color: var(--bv-brasa-crimson);
   text-align: left;
 }
 
@@ -172,7 +180,7 @@ a {
 
 .admin-error {
   background: #fee2e2;
-  color: #991b1b;
+  color: var(--bv-brasa-admin);
 }
 
 .admin-success {
@@ -191,8 +199,8 @@ a {
   flex-direction: column;
   gap: 1.25rem;
   padding: 1.25rem;
-  background: #1c1917;
-  color: #fffaf1;
+  background: var(--bv-carbon);
+  color: var(--bv-surface);
 }
 
 .admin-brand {
@@ -291,7 +299,7 @@ a {
 }
 
 .admin-metric strong {
-  color: #991b1b;
+  color: var(--bv-brasa-admin);
   font-size: 1.8rem;
 }
 
@@ -492,7 +500,7 @@ input[type='checkbox'] {
   padding: 0.8rem;
   border-radius: 0.5rem;
   background: #fff;
-  color: #991b1b;
+  color: var(--bv-brasa-admin);
   font-weight: bold;
 }
 .skip-link:focus {
@@ -557,7 +565,7 @@ input[type='checkbox'] {
   padding: 0.5rem 0;
   cursor: pointer;
   font-weight: bold;
-  color: #991b1b;
+  color: var(--bv-brasa-admin);
 }
 .admin-table-wrap details ul {
   padding-left: 1rem;
