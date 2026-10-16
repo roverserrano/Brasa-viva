@@ -21,7 +21,7 @@ test('executive filters, chart and branch drill-down use the authorized API', as
   const request = page.waitForResponse((response) =>
     response.url().includes('/dashboard/insights?days=7')
   );
-  await page.getByLabel('Período', { exact: true }).selectOption('7');
+  await page.getByRole('combobox', { name: 'Período' }).selectOption('7');
   await request;
   await page.getByRole('button', { name: 'Importe', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Importe', exact: true })).toHaveAttribute(
@@ -34,7 +34,7 @@ test('executive filters, chart and branch drill-down use the authorized API', as
   await page.getByText('Ver tabla de datos', { exact: true }).click();
   await expect(page.locator('.dashboard-data-table tbody tr')).toHaveCount(7);
   await page.getByRole('button', { name: 'Ver indicadores de Brasa Viva Norte' }).click();
-  await expect(page.getByLabel('Sucursal', { exact: true })).toHaveValue(
+  await expect(page.getByRole('combobox', { name: 'Sucursal' })).toHaveValue(
     '00000000-0000-4000-8000-000000000007'
   );
   await expect(page.locator('.dashboard-branch')).toHaveCount(1);
@@ -55,7 +55,7 @@ test('dashboard handles failures, retries and late responses without displaying 
     await route.fulfill({ json: dashboardFixture(days) });
   });
   await page.goto('/admin');
-  await expect(page.getByRole('alert')).toContainText('No pudimos actualizar');
+  await expect(page.getByRole('alert').filter({ hasText: 'No pudimos actualizar' })).toBeVisible();
   fail = false;
   await page.getByRole('button', { name: 'Intentar nuevamente' }).click();
   await expect(page.getByRole('heading', { name: 'Evolución diaria' })).toBeVisible();
@@ -65,9 +65,9 @@ test('dashboard handles failures, retries and late responses without displaying 
   const slowResponse = page.waitForResponse((response) =>
     response.url().includes('/dashboard/insights?days=7')
   );
-  await page.getByLabel('Período', { exact: true }).selectOption('7');
+  await page.getByRole('combobox', { name: 'Período' }).selectOption('7');
   await slowRequest;
-  await page.getByLabel('Período', { exact: true }).selectOption('90');
+  await page.getByRole('combobox', { name: 'Período' }).selectOption('90');
   await expect(page.getByLabel('Explorar un día')).toHaveAttribute('max', '89');
   // Await the deliberately delayed stale response, then verify the current result remains.
   await slowResponse;

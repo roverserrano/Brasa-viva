@@ -6,7 +6,10 @@ test('a customer finds a product, persists the cart and gets WhatsApp only after
   await page.goto('/menu?branch=brasa-viva-centro');
   await page.getByPlaceholder('Busca pollo, hamburguesas, bebidas…').fill('broaster');
   await page.getByRole('button', { name: 'Añadir al carrito' }).click();
-  await page.getByRole('link', { name: 'Ver mi carrito' }).click();
+  await Promise.all([
+    page.waitForURL('**/carrito'),
+    page.getByRole('link', { name: 'Ver mi carrito' }).click()
+  ]);
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Broaster clásico' })).toBeVisible();
   await page.getByRole('link', { name: 'Continuar con el pedido' }).click();
@@ -170,26 +173,26 @@ test('catalog filters survive reload, sorting and browser history without losing
   await page.goto('/menu?branch=brasa-viva-centro');
   const search = page.getByPlaceholder('Busca pollo, hamburguesas, bebidas…');
   await search.pressSequentially('Broaster clásico');
-  await page.getByLabel('Ordenar', { exact: true }).selectOption('price-asc');
+  await page.getByRole('combobox', { name: 'Ordenar' }).selectOption('price-asc');
   await expect(search).toHaveValue('Broaster clásico');
   await expect(page).toHaveURL(/sort=price-asc/);
   await page.reload();
   await expect(search).toHaveValue('Broaster clásico');
-  await expect(page.getByLabel('Ordenar', { exact: true })).toHaveValue('price-asc');
+  await expect(page.getByRole('combobox', { name: 'Ordenar' })).toHaveValue('price-asc');
   await page.getByRole('link', { name: 'Ver Broaster clásico', exact: true }).click();
   await expect(page).toHaveTitle('Broaster clásico · Brasa Viva Centro | Brasa Viva');
   await page.goBack();
   await expect(search).toHaveValue('Broaster clásico');
-  await expect(page.getByLabel('Ordenar', { exact: true })).toHaveValue('price-asc');
+  await expect(page.getByRole('combobox', { name: 'Ordenar' })).toHaveValue('price-asc');
   await page.getByRole('button', { name: 'Limpiar filtros', exact: true }).click();
   await expect(search).toHaveValue('');
-  await expect(page.getByLabel('Ordenar', { exact: true })).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Ordenar' })).toHaveValue('');
   await expect(page).toHaveURL(/\/menu\?branch=brasa-viva-centro$/);
 });
 
 test('a missing branch still allows recovery through the branch selector', async ({ page }) => {
   await page.goto('/menu?branch=no-existe');
-  await expect(page.getByRole('alert')).toContainText('No pudimos cargar');
+  await expect(page.getByRole('alert').filter({ hasText: 'No pudimos cargar' })).toBeVisible();
   await page
     .getByRole('navigation', { name: 'Seleccionar sucursal' })
     .getByRole('link', { name: 'Brasa Viva Centro' })
