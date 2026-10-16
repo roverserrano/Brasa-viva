@@ -1,11 +1,3 @@
-# Brasa Viva
-
-Plataforma de menú, sucursales, pedidos y administración para Brasa Viva.
-
-- [Guía de uso para clientes y personal](docs/USER_GUIDE.md).
-- [Configuración y validación antes del lanzamiento](docs/RELEASE_READINESS.md).
-- [Diseño público, imágenes y revisión visual](docs/PUBLIC_DESIGN.md).
-
 ## Requisitos
 
 - Node.js 22 o superior.

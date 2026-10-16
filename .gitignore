@@ -1,16 +1,45 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build outputs
 .turbo
 .next
 dist
+*.tsbuildinfo
+
+# Tests
 coverage
 playwright-report
 test-results
+
+# Generated code
 generated/prisma
 apps/api/generated/prisma
+
+# Next.js
+.next/
+out/
+
+# Environment
 .env
 .env.local
 .env.*.local
 !.env.example
+
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
-*.tsbuildinfo
+
+# Local artifacts excluded from the public repository
+Brasa viva.zip
+docs/design-previews/
+
+#
+.agent
+.agents
+codex-guides/
+docs/
+postgresql/
+prisma/
+AGENTS.md
+ARCHITECTURE.md
+DESIGN.md
