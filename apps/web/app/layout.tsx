@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
 
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   },
   description: 'Menú, promociones y pedidos de Brasa Viva en Cochabamba.'
 };
+
+export const viewport: Viewport = { themeColor: '#faf5eb' };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (

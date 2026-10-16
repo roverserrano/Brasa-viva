@@ -58,6 +58,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+.system-button:active,
+.system-button-secondary:active {
+  transform: translateY(1px);
+}
 .system-button {
   background: var(--bv-brasa);
   border: 1px solid var(--bv-brasa);

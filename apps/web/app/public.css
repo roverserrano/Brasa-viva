@@ -60,6 +60,9 @@
   background: var(--bv-brasa-strong);
   transform: translateY(-2px);
 }
+.public-button:active {
+  transform: translateY(0) scale(0.98);
+}
 .public-button-light {
   color: #352b20;
   background: #fff4df;
@@ -606,6 +609,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .menu-product-body > p {
   color: var(--public-muted);
@@ -698,6 +702,7 @@
   color: var(--public-red);
   font-size: 1.8rem;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
   margin: 1.5rem 0;
 }
 .public-promo-card .public-text-link {
@@ -819,6 +824,7 @@
     700 1.75rem Arial,
     sans-serif;
   color: var(--public-red);
+  font-variant-numeric: tabular-nums;
   margin: 1.5rem 0;
 }
 @media (max-width: 1023px) {
@@ -1152,6 +1158,9 @@
   .site-mobile-dock > a[aria-current='page'] {
     background: #f5e6d6;
     color: var(--bv-brasa);
+  }
+  .site-mobile-dock > a:active {
+    background: #f5e6d6;
   }
   .dock-icon {
     position: relative;

@@ -51,7 +51,12 @@ a {
   display: grid;
   place-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, var(--bv-brasa-night), var(--bv-brasa-dark) 55%, var(--bv-brasa-crimson));
+  background: linear-gradient(
+    135deg,
+    var(--bv-brasa-night),
+    var(--bv-brasa-dark) 55%,
+    var(--bv-brasa-crimson)
+  );
   color: var(--bv-cream);
 }
 
@@ -143,6 +148,13 @@ a {
 .admin-primary-button {
   background: var(--bv-brasa-admin);
   color: #fff;
+}
+
+.admin-primary-button:active,
+.admin-secondary-button:active,
+.admin-link-button:active,
+.admin-inline-button:active {
+  transform: translateY(1px);
 }
 
 .admin-primary-button:disabled,
@@ -476,6 +488,7 @@ input,
 select,
 textarea {
   touch-action: manipulation;
+  -webkit-tap-highlight-color: rgb(174 43 33 / 10%);
 }
 button,
 input:not([type='checkbox']):not([type='radio']),

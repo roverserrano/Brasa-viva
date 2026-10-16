@@ -234,12 +234,12 @@ export function CheckoutForm() {
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {availableOrderTypes.map((service) => (
               <label
-                className={`cursor-pointer rounded-2xl border-2 p-4 ${orderType === service ? 'border-red-700 bg-red-50' : 'border-stone-200'}`}
+                className={`cursor-pointer rounded-2xl border-2 p-4 ${orderType === service ? 'border-[var(--bv-brasa)] bg-[var(--bv-brasa-tint)]' : 'border-stone-200'}`}
                 key={service}
               >
                 <input
                   checked={orderType === service}
-                  className="mr-2 accent-red-700"
+                  className="mr-2 accent-[var(--bv-brasa)]"
                   name="orderType"
                   onChange={() => {
                     setOrderType(service);
@@ -345,7 +345,7 @@ export function CheckoutForm() {
               <span>
                 <strong>{item.quantity}×</strong> {item.name}
               </span>
-              <span className="whitespace-nowrap font-bold">
+              <span className="whitespace-nowrap font-bold tabular-nums">
                 {formatBs(Number(item.unitPrice) * item.quantity)}
               </span>
             </li>
@@ -422,7 +422,7 @@ function OrderConfirmation({ order }: { order: CreateOrderResponse }) {
         ) : null}
         <div className="mt-4 flex items-end justify-between gap-4">
           <span className="text-sm text-stone-300">Total confirmado</span>
-          <strong className="text-3xl">{formatBs(order.total)}</strong>
+          <strong className="text-3xl tabular-nums">{formatBs(order.total)}</strong>
         </div>
       </div>
       <div className="mt-6 flex flex-wrap gap-4">

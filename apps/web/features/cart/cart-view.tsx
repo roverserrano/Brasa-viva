@@ -53,9 +53,7 @@ export function CartView() {
           >
             <div>
               <h2 className="text-lg font-black">{item.name}</h2>
-              <p className="mt-1 text-sm text-stone-700">
-                {formatBs(item.unitPrice)} c/u
-              </p>
+              <p className="mt-1 text-sm text-stone-700">{formatBs(item.unitPrice)} c/u</p>
             </div>
             <div className="flex items-center gap-3">
               <button
@@ -97,7 +95,7 @@ export function CartView() {
         <div>
           <p className="text-sm font-bold text-stone-600">Subtotal estimado</p>
           <p
-            className="mt-1 text-3xl font-black"
+            className="mt-1 text-3xl font-black tabular-nums"
             role="status"
             aria-label={`Subtotal estimado: ${formatBs(estimatedSubtotal)}`}
           >
