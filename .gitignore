@@ -13,3 +13,4 @@ apps/api/generated/prisma
 !.env.example
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+*.tsbuildinfo
