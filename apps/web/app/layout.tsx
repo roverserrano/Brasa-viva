@@ -17,7 +17,7 @@ export const viewport: Viewport = { themeColor: '#faf5eb' };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es-BO">
+    <html lang="es-BO" data-scroll-behavior="smooth">
       <body>
         <a className="skip-link" href="#main-content">
           Saltar al contenido
