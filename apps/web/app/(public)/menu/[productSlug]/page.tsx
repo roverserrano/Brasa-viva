@@ -98,12 +98,13 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
         </Link>
       </main>
     );
+  const seo = productSeo(product);
   return (
     <main className="public-container public-page">
-      {productSeo(product).structuredData ? (
+      {seo.structuredData ? (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: serializeJsonLd(productSeo(product).structuredData) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(seo.structuredData) }}
         />
       ) : null}
       <Link className="public-breadcrumb" href={menuHref(context)}>
@@ -114,7 +115,7 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
           imageUrl={product.imageUrl}
           name={product.name}
           featured={product.featured}
-          priority
+          eager
           sizes="(max-width: 767px) 90vw, 50vw"
         />
         <div>

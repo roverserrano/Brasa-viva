@@ -10,7 +10,8 @@ export function HomeHero() {
           alt="Pollo dorado al fuego con papas y llajua, presentación ilustrativa"
           className="home-hero-image"
           fill
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
           src="/images/brasa-viva-fire-v2.webp"
         />

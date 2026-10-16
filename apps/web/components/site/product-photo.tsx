@@ -9,13 +9,13 @@ export function ProductPhoto({
   imageUrl,
   name,
   featured = false,
-  priority = false,
+  eager = false,
   sizes = '(max-width: 479px) 90vw, (max-width: 1023px) 45vw, 30vw'
 }: {
   imageUrl: string | null;
   name: string;
   featured?: boolean;
-  priority?: boolean;
+  eager?: boolean;
   sizes?: string;
 }) {
   const source = resolveCatalogImage(imageUrl);
@@ -28,7 +28,8 @@ export function ProductPhoto({
           alt={name}
           fill
           sizes={sizes}
-          priority={priority}
+          loading={eager ? 'eager' : undefined}
+          fetchPriority={eager ? 'high' : undefined}
           onError={() => setFailedSource(source)}
         />
       ) : (

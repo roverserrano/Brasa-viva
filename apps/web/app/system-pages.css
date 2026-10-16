@@ -1,0 +1,115 @@
+/* Páginas de sistema: error, 404 y estados de carga.
+ * Consumen solo tokens --bv-* (ver DESIGN.md) y no dependen del layout público.
+ */
+.system-page {
+  min-height: 70dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 6vw, 4.5rem) 1.5rem;
+}
+.system-card {
+  width: min(100%, 40rem);
+  background: var(--bv-card);
+  border: 1px solid var(--bv-line);
+  border-radius: var(--bv-radius-lg);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  box-shadow: var(--bv-shadow-card);
+}
+.system-eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bv-brasa);
+}
+.system-card h1 {
+  margin: 0;
+  font-family: var(--bv-font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--bv-ink);
+  text-wrap: balance;
+}
+.system-card p {
+  margin: 1rem 0 0;
+  line-height: 1.6;
+  color: var(--bv-muted);
+}
+.system-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.75rem;
+}
+.system-button,
+.system-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.3rem;
+  border-radius: var(--bv-radius-sm);
+  font-family: var(--bv-font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.system-button {
+  background: var(--bv-brasa);
+  border: 1px solid var(--bv-brasa);
+  color: #fff;
+}
+.system-button:hover {
+  background: var(--bv-brasa-strong);
+  border-color: var(--bv-brasa-strong);
+}
+.system-button-secondary {
+  background: transparent;
+  border: 1px solid var(--bv-line-strong);
+  color: var(--bv-ink);
+}
+.system-button-secondary:hover {
+  border-color: var(--bv-ink);
+}
+
+/* Esqueletos de carga (menú y otras colecciones). */
+.skeleton-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  margin-top: 2rem;
+}
+.skeleton-card {
+  height: 19rem;
+  border: 1px solid var(--bv-line);
+  border-radius: var(--bv-radius-md);
+  background: linear-gradient(100deg, var(--bv-card) 40%, var(--bv-surface) 50%, var(--bv-card) 60%);
+  background-size: 220% 100%;
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+}
+.skeleton-line {
+  height: 1rem;
+  border-radius: var(--bv-radius-xs);
+  background: var(--bv-line);
+  margin-top: 0.9rem;
+}
+.skeleton-line.short {
+  width: 55%;
+}
+@keyframes skeleton-sweep {
+  from {
+    background-position: 130% 0;
+  }
+  to {
+    background-position: -30% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-card {
+    animation: none;
+  }
+}

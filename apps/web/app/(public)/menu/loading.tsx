@@ -1,10 +1,18 @@
 export default function MenuLoading() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-4xl font-black">Menú</h1>
-      <p className="mt-6 rounded-2xl bg-white p-6" role="status">
-        Estamos buscando las sucursales y los productos disponibles…
-      </p>
+    <main className="public-container public-page">
+      <div role="status" aria-live="polite">
+        <p className="public-eyebrow">Preparando tu pedido</p>
+        <h1 className="public-display">Cargando el menú…</h1>
+        <p className="public-intro-copy">
+          Estamos buscando las sucursales y los productos disponibles.
+        </p>
+      </div>
+      <div className="skeleton-grid" aria-hidden="true">
+        <div className="skeleton-card" />
+        <div className="skeleton-card" />
+        <div className="skeleton-card" />
+      </div>
     </main>
   );
 }

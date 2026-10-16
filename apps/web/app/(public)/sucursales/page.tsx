@@ -78,6 +78,7 @@ export default async function BranchesPage() {
             src="/images/brasa-viva-atmosphere-v1.webp"
             alt="Concepto ilustrativo de restaurante con luz cálida, mesas de madera y plantas; no es una sucursal real"
             fill
+            loading="eager"
             sizes="(max-width: 767px) 90vw, 45vw"
           />
           <span>Concepto de ambiente · imagen ilustrativa</span>

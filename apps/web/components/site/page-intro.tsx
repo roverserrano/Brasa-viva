@@ -28,7 +28,14 @@ export function PageIntro({
       </div>
       {image ? (
         <figure className="page-intro-visual">
-          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 767px) 1px, 40vw" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="(max-width: 767px) 1px, 40vw"
+          />
           <figcaption>Imagen ilustrativa</figcaption>
         </figure>
       ) : null}

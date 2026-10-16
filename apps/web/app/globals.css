@@ -1,5 +1,6 @@
 @import './tokens.css';
 @import 'tailwindcss';
+@import './system-pages.css';
 @import './public.css';
 @import '../features/home/home.css';
 @import '../features/checkout/checkout.css';

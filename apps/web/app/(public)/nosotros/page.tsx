@@ -32,6 +32,7 @@ export default function AboutPage() {
             src="/images/brasa-viva-fire-v2.webp"
             alt="Pollo dorado al fuego, papas y llajua, imagen ilustrativa de la propuesta gastronómica"
             fill
+            loading="eager"
             sizes="(max-width: 767px) 90vw, 45vw"
           />
         </div>

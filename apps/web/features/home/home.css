@@ -692,3 +692,8 @@
     margin-bottom: 1.5rem;
   }
 }
+
+/* Ancla interna del hero (#antojos): compensa el header fijo. */
+#antojos {
+  scroll-margin-top: 5.5rem;
+}

@@ -10,18 +10,20 @@ export function CartSummaryLink() {
   const ready = useCartReady();
   const count = ready ? items.reduce((total, item) => total + item.quantity, 0) : 0;
   return (
-    <Link
-      className="site-cart-link"
-      href="/carrito"
-      aria-label={`Carrito${count ? `: ${count} productos` : ''}`}
-    >
+    <>
+      <Link
+        className="site-cart-link"
+        href="/carrito"
+        aria-label={`Carrito${count ? `: ${count} productos` : ''}`}
+      >
+        <SiteIcon name="bag" />
+        <span className="site-cart-label">Carrito</span>{' '}
+        {count ? <span className="site-cart-count">{count}</span> : null}
+      </Link>
       <span className="sr-only" role="status" aria-atomic="true">
-        {ready ? `${count} productos en tu carrito` : ''}
+        {ready && count ? `${count} productos en tu carrito` : ''}
       </span>
-      <SiteIcon name="bag" />
-      <span className="site-cart-label">Carrito</span>{' '}
-      {count ? <span className="site-cart-count">{count}</span> : null}
-    </Link>
+    </>
   );
 }
 
